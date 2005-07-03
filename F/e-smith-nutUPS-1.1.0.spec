@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 02
+%define release 03
 Version: %{version}
 Release: %{release}
 License: GPL
