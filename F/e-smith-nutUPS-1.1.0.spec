@@ -10,6 +10,7 @@ Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-nutUPS-1.1.0-02.mitel_patch
+Patch1: e-smith-nutUPS-1.1.0-03.patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
@@ -23,6 +24,11 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Sun Jul 03 2005 Shad L. Lords <slords@mail.com>
+- [1.1.0-03]
+- Change nutups user to nut to confirm with new package
+- Upgrade templates to support new 2.0 format [SF: 1226389]
+
 * Thu Aug 21 2003 Charlie Brady <charlieb@e-smith.com>
 - [1.1.0-02]
 - Replace nutUPS-conf-startup action with default db fragments.
@@ -123,6 +129,7 @@ the SME server software.
 %prep
 %setup
 %patch0 -p1
+%patch1 -p1
 
 %build
 perl createlinks
@@ -137,23 +144,23 @@ rm -rf $RPM_BUILD_ROOT
 (cd root   ; find . -depth -print | cpio -dump $RPM_BUILD_ROOT)
 rm -f %{name}-%{version}-%{release}-filelist
 /sbin/e-smith/genfilelist $RPM_BUILD_ROOT \
-    | sed -e '/nutUPS.notify/s/root,root/root,nutups/' \
+    | sed -e '/nutUPS.notify/s/root,root/root,nut/' \
     > %{name}-%{version}-%{release}-filelist
-echo '%dir %attr(750,nutups,nutups) /var/lib/ups' \
+echo '%dir %attr(750,nut,nut) /var/lib/ups' \
   >>  %{name}-%{version}-%{release}-filelist
-echo '%ghost %attr(640,nutups,nutups) /var/lib/ups/hiddev0' \
+echo '%ghost %attr(640,nut,nut) /var/lib/ups/hiddev0' \
   >>  %{name}-%{version}-%{release}-filelist
 mkdir -p $RPM_BUILD_ROOT/var/lib/ups/
 touch $RPM_BUILD_ROOT/var/lib/ups/hiddev0
 
 %pre
-/sbin/e-smith/create-system-user nutups 420 'NUT UPS user' /var/lib/ups /bin/false
+/sbin/e-smith/create-system-user nut 57 'NUT UPS user' /var/lib/ups /bin/false
 
 %post
 if [ \! -e /var/lib/ups/hiddev0 ]
 then
  mknod /var/lib/ups/hiddev0 c 180 96
- chown nutups.nutups  /var/lib/ups/hiddev0
+ chown nut.nut  /var/lib/ups/hiddev0
 fi
 
 %clean
