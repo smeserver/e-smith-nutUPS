@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 03
+%define release 02sme01
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -10,7 +10,7 @@ Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-nutUPS-1.1.0-02.mitel_patch
-Patch1: e-smith-nutUPS-1.1.0-03.patch
+Patch1: e-smith-nutUPS-1.1.0-02sme01.patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
@@ -25,7 +25,7 @@ the SME server software.
 
 %changelog
 * Sun Jul 03 2005 Shad L. Lords <slords@mail.com>
-- [1.1.0-03]
+- [1.1.0-02sme01]
 - Change nutups user to nut to confirm with new package
 - Upgrade templates to support new 2.0 format [SF: 1226389]
 
