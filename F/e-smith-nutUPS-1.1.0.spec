@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 02sme02
+%define release 04
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -10,12 +10,12 @@ Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-nutUPS-1.1.0-02.mitel_patch
-Patch1: e-smith-nutUPS-1.1.0-02sme01.patch
-Patch2: e-smith-nutUPS-1.1.0-02sme02.patch
+Patch1: e-smith-nutUPS-1.1.0-03.mitel_patch
+Patch2: e-smith-nutUPS-1.1.0-04.mitel_patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
-Requires: e-smith-lib >= 1.13.1-90
+Requires: e-smith-lib >= 1.15.1-16
 BuildArchitectures: noarch
 BuildRequires: e-smith-devtools
 AutoReqProv: no
@@ -25,13 +25,14 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
-* Wed Jul 20 2005 Shad L. Lords <slords@mail.com>
-- [1.1.0-02sme02]
-- Remove stray directory/file
-- Add default db entries
+* Tue Jul 12 2005 Charlie Brady <charlieb@e-smith.com>
+- [1.1.0-04]
+- Use generic_template_expand action in place of nutUPS-conf.
+  [MN00064130]
 
-* Sun Jul 03 2005 Shad L. Lords <slords@mail.com>
-- [1.1.0-02sme01]
+* Tue Jul 12 2005 Charlie Brady <charlieb@e-smith.com>
+- [1.1.0-03]
+- Port to version 2.0 or nut (contributed by Shad Lords).
 - Change nutups user to nut to confirm with new package
 - Upgrade templates to support new 2.0 format [SF: 1226389]
 
