@@ -1,0 +1,7 @@
+Index: e-smith-nutUPS/e-smith-nutUPS.spec
+diff -u e-smith-nutUPS/root/etc/e-smith/templates.metadata/etc/sysconfig/ups:1.1 e-smith-nutUPS/root/etc/e-smith/templates.metadata/etc/sysconfig/ups:1.2
+--- e-smith-nutUPS/root/etc/e-smith/templates.metadata/etc/sysconfig/ups:1.1	Mon Jul 25 17:07:06 2005
++++ e-smith-nutUPS/root/etc/e-smith/templates.metadata/etc/sysconfig/ups	Tue Aug 16 19:08:05 2005
+@@ -1 +1 @@
+-PERMS=0440
++PERMS=0644

@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 05
+%define release 06
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -13,6 +13,7 @@ Patch0: e-smith-nutUPS-1.1.0-02.mitel_patch
 Patch1: e-smith-nutUPS-1.1.0-03.mitel_patch
 Patch2: e-smith-nutUPS-1.1.0-04.mitel_patch
 Patch3: e-smith-nutUPS-1.1.0-05.mitel_patch
+Patch4: e-smith-nutUPS-1.1.0-06.mitel_patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
@@ -26,6 +27,10 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Tue Aug 16 2005 Charlie Brady <charlieb@e-smith.com>
+- [1.1.0-06]
+- Match permissions on /etc/sysconfig/ups to those of the nut RPM.
+
 * Mon Jul 25 2005 Charlie Brady <charlieb@e-smith.com>
 - [1.1.0-05]
 - Remove unused /etc/usb/usb.usermap template fragment.
@@ -147,6 +152,7 @@ the SME server software.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+%patch4 -p1
 
 %build
 perl createlinks
