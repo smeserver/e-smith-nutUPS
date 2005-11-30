@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 06
+%define release 07
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -27,6 +27,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Wed Nov 30 2005 Gordon Rowell <gordonr@gormand.com.au> 1.1.0-07
+- Bump release number only
+
 * Tue Aug 16 2005 Charlie Brady <charlieb@e-smith.com>
 - [1.1.0-06]
 - Match permissions on /etc/sysconfig/ups to those of the nut RPM.
