@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 07
+%define release 08
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -27,6 +27,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Wed Feb 01 2006 Charlie Brady <charlie_brady@mitel.com> 1.1.0-08
+- Ensure that device node has correct ownership. [SME: 619]
+
 * Wed Nov 30 2005 Gordon Rowell <gordonr@gormand.com.au> 1.1.0-07
 - Bump release number only
 
@@ -186,8 +189,8 @@ touch $RPM_BUILD_ROOT/var/lib/ups/hiddev0
 if [ \! -e /var/lib/ups/hiddev0 ]
 then
  mknod /var/lib/ups/hiddev0 c 180 96
- chown nut.nut  /var/lib/ups/hiddev0
 fi
+chown nut.nut  /var/lib/ups/hiddev0
 
 %clean
 rm -rf $RPM_BUILD_ROOT
