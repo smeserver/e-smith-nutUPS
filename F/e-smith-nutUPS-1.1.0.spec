@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.1.0
-%define release 09
+%define release 10
 Version: %{version}
 Release: %{release}
 License: GPL
@@ -15,6 +15,7 @@ Patch2: e-smith-nutUPS-1.1.0-04.mitel_patch
 Patch3: e-smith-nutUPS-1.1.0-05.mitel_patch
 Patch4: e-smith-nutUPS-1.1.0-06.mitel_patch
 Patch5: e-smith-nutUPS-1.1.0-default_model.patch
+Patch6: e-smith-nutUPS-1.1.0-default_model_dbdefault.patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
@@ -28,6 +29,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Thu Feb  2 2006 Gordon Rowell <gordonr@gormand.com.au> 1.1.0-10
+- Added db default to match last change [SME: 26]
+
 * Thu Feb  2 2006 Charlie Brady <charlie_brady@mitel.com> 1.1.0-09
 - Change default model from hidups to newhidups. [SME: 26]
 
@@ -164,6 +168,7 @@ the SME server software.
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 perl createlinks
