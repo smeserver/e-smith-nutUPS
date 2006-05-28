@@ -2,13 +2,14 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 01
+%define release 02
 Version: %{version}
 Release: %{release}
 License: GPL
 Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch0: e-smith-nutUPS-1.2.0-upsd.conf-perms.patch
 Packager: e-smith developers <bugs@e-smith.com>
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
@@ -22,6 +23,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Sun May 28 2006 Charlie Brady <charlie_brady@mitel.com> 1.2.0-02
+- Fix perms on upsd.conf [SME: 1473]
+
 * Wed Mar 15 2006 Charlie Brady <charlie_brady@mitel.com> 1.2.0-01
 - Roll stable stream version. [SME: 1016]
 
@@ -158,6 +162,7 @@ the SME server software.
 
 %prep
 %setup
+%patch0 -p1
 
 %build
 perl createlinks
