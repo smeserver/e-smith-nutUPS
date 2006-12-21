@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 3
+%define release 4
 Version: %{version}
 Release: %smerelease %{release}
 Packager: %{_packager}
@@ -11,6 +11,7 @@ Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-nutUPS-1.2.0-upsd.conf-perms.patch
+Patch1: e-smith-nutUPS-1.2.0-secure.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -23,6 +24,12 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Thu Dec 21 2006 Shad L. Lords <slords@mail.com>
+- Make password secure for ups users
+- Allow local network to monitor ups as slaves
+- Make localhost master for ups
+- Make startup/shutdown scripts use upsdrvctl so poweroff works
+
 * Thu Dec 07 2006 Shad L. Lords <slords@mail.com>
 - Update to new release naming.  No functional changes.
 - Make Packager generic
@@ -167,6 +174,7 @@ the SME server software.
 %prep
 %setup
 %patch0 -p1
+%patch1 -p1
 
 %build
 perl createlinks
