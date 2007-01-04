@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 4
+%define release 5
 Version: %{version}
 Release: %smerelease %{release}
 Packager: %{_packager}
@@ -12,6 +12,8 @@ Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-nutUPS-1.2.0-upsd.conf-perms.patch
 Patch1: e-smith-nutUPS-1.2.0-secure.patch
+Patch2: e-smith-nutUPS-1.2.0-notify.patch
+Patch3: e-smith-nutUPS-1.2.0-slave.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -24,7 +26,11 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
-* Thu Dec 21 2006 Shad L. Lords <slords@mail.com>
+* Thu Jan 04 2007 Shad L. Lords <slords@mail.com> 1.2.0-5
+- Actually call the notify script on ups events. [SME: 1722]
+- Allow nut to be a client to another master server. [SME: 2231]
+
+* Thu Dec 21 2006 Shad L. Lords <slords@mail.com> 1.2.0-4
 - Make password secure for ups users
 - Allow local network to monitor ups as slaves
 - Make localhost master for ups
@@ -175,6 +181,8 @@ the SME server software.
 %setup
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
+%patch3 -p1
 
 %build
 perl createlinks
