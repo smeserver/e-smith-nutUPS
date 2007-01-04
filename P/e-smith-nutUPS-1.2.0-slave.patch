@@ -10,8 +10,8 @@ diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates
 @@ -1 +1,7 @@
 -MONITOR UPS@localhost 1 upsmaster { $nut{MasterPass} } master
 +{
-+    if ( (($nut{Master} || 'yes') ne 'no' ) {
-+	$OUT = "MONITOR UPS@localhost 1 upsmaster $nut{MasterPass} master";
++    if ( ($nut{Master} || 'yes') ne 'no' ) {
++	$OUT = "MONITOR UPS\@localhost 1 upsmaster $nut{MasterPass} master";
 +    } else {
 +	$OUT = "MONITOR $nut{SlaveUPS} 1 upsslave $nut{SlavePass} slave";
 +    }
