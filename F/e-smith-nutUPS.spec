@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 6
+%define release 7
 Version: %{version}
 Release: %smerelease %{release}
 Packager: %{_packager}
@@ -15,6 +15,7 @@ Patch1: e-smith-nutUPS-1.2.0-secure.patch
 Patch2: e-smith-nutUPS-1.2.0-notify.patch
 Patch3: e-smith-nutUPS-1.2.0-slave.patch
 Patch4: e-smith-nutUPS-1.2.0-upstype.patch
+Patch5: e-smith-nutUPS-1.2.0-passwords.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -27,6 +28,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Thu Jan 18 2007 Shad L. Lords <slords@mail.com> 1.2.0-7
+- Fix password generation and simplify [SME: 2323]
+
 * Sat Jan 13 2007 Shad L. Lords <slords@mail.com> 1.2.0-6
 - Add upstype option to ups.conf [SME: 2286]
 
@@ -188,6 +192,7 @@ the SME server software.
 %patch2 -p1
 %patch3 -p1
 %patch4 -p1
+%patch5 -p1
 
 %build
 perl createlinks
