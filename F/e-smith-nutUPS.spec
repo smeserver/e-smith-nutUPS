@@ -4,10 +4,8 @@ Name: %{name}
 %define version 1.2.0
 %define release 10
 Version: %{version}
-Release: %smerelease %{release}
-Packager: %{_packager}
+Release: %{release}%{?dist}
 License: GPL
-Vendor: Mitel Networks Corporation
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
 Patch0: e-smith-nutUPS-1.2.0-upsd.conf-perms.patch
@@ -31,6 +29,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Sun Apr 29 2007 Shad L. Lords <slords@mail.com>
+- Clean up spec so package can be built by koji/plague
+
 * Tue Apr 10 2007 Stephen Noble <support@dungog.net> 1.2.0-10
 - Only use Type if model=genericups [SME: 2748]
 
