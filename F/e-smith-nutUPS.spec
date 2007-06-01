@@ -31,10 +31,10 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
-* Fri May 1 2007 Stephen Noble <support@dungog.net> 1.2.0-13
+* Fri Jun 1 2007 Stephen Noble <support@dungog.net> 1.2.0-13
 - Add mfr & mdl options to ups.conf [SME: 2791]
 
-* Fri May 1 2007 Stephen Noble <support@dungog.net> 1.2.0-12
+* Fri Jun 1 2007 Stephen Noble <support@dungog.net> 1.2.0-12
 - Only use Type if model=genericups & type is defined [SME: 2748]
 
 * Sun Apr 29 2007 Shad L. Lords <slords@mail.com>
