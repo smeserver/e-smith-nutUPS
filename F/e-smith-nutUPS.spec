@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 13
+%define release 14
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -19,6 +19,7 @@ Patch7: e-smith-nutUPS-1.2.0-config_perms.patch
 Patch8: e-smith-nutUPS-1.2.0-upstype3.patch
 Patch9: e-smith-nutUPS-1.2.0-upstype4.patch
 Patch10: e-smith-nutUPS-1.2.0-mfr.patch
+Patch11: e-smith-nutUPS-1.2.0-mfr2.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -31,6 +32,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Sun Jun 3 2007 Stephen Noble <support@dungog.net> 1.2.0-14
+- Fix mfr & mdl options in ups.conf [SME: 2791]
+
 * Fri Jun 1 2007 Stephen Noble <support@dungog.net> 1.2.0-13
 - Add mfr & mdl options to ups.conf [SME: 2791]
 
@@ -219,6 +223,7 @@ the SME server software.
 %patch8 -p1
 %patch9 -p1
 %patch10 -p1
+%patch11 -p1
 
 %build
 perl createlinks
