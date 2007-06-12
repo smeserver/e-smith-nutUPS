@@ -1,0 +1,17 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/ups.conf/UPS mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/ups.conf/UPS
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/ups.conf/UPS	2007-06-03 01:04:08.000000000 -0600
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/ups.conf/UPS	2007-06-03 01:03:27.000000000 -0600
+@@ -7,8 +7,10 @@
+     $OUT .= "[UPS]\n";
+     $OUT .= "\tdriver = $model\n";
+     if  ($model eq 'genericups')
+-    { $OUT .= "\tupstype = $type\n" if defined $type; }
+-    { $OUT .= "\tmfr = $mfr\n" if defined $mfr; }
+-    { $OUT .= "\tmodel = $mdl\n" if defined $mdl; }
++    { 
++      $OUT .= "\tupstype = $type\n" if defined $type;
++      $OUT .= "\tmfr = $mfr\n" if defined $mfr;
++      $OUT .= "\tmodel = $mdl\n" if defined $mdl;
++    }
+     $OUT .= "\tport = $device\n";
+ }
