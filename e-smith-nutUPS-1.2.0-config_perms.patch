@@ -1,0 +1,27 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/ups.conf mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/ups.conf
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/ups.conf	2006-03-15 12:51:21.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/ups.conf	2007-04-06 09:12:23.000000000 -0600
+@@ -1,3 +1,3 @@
+ UID="root"
+-GID="root"
+-PERMS=0644
++GID="nut"
++PERMS=0640
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upsmon.conf mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upsmon.conf
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upsmon.conf	2006-03-15 12:51:21.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upsmon.conf	2007-04-06 09:11:38.000000000 -0600
+@@ -1,3 +1,3 @@
+-UID="nut"
++UID="root"
+ GID="nut"
+-PERMS=0400
++PERMS=0640
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upssched.conf mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upssched.conf
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upssched.conf	2006-03-15 12:51:21.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates.metadata/etc/ups/upssched.conf	2007-04-06 09:11:55.000000000 -0600
+@@ -1,3 +1,3 @@
+-UID="nut"
++UID="root"
+ GID="nut"
+-PERMS=0400
++PERMS=0640

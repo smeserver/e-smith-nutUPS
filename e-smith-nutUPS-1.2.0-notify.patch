@@ -1,0 +1,25 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/NOTIFYFLAG mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/NOTIFYFLAG
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/NOTIFYFLAG	1969-12-31 17:00:00.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/NOTIFYFLAG	2007-01-04 11:24:34.000000000 -0700
+@@ -0,0 +1,9 @@
++NOTIFYFLAG COMMBAD  SYSLOG+WALL+EXEC
++NOTIFYFLAG COMMOK   SYSLOG+WALL+EXEC
++NOTIFYFLAG FSD      SYSLOG+WALL+EXEC
++NOTIFYFLAG LOWBATT  SYSLOG+WALL+EXEC
++NOTIFYFLAG NOCOMM   SYSLOG+WALL+EXEC
++NOTIFYFLAG ONBATT   SYSLOG+WALL+EXEC
++NOTIFYFLAG ONLINE   SYSLOG+WALL+EXEC
++NOTIFYFLAG REPLBATT SYSLOG+WALL+EXEC
++NOTIFYFLAG SHUTDOWN SYSLOG+WALL+EXEC
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/sbin/e-smith/nutUPS.notify mezzanine_patched_e-smith-nutUPS-1.2.0/root/sbin/e-smith/nutUPS.notify
+--- e-smith-nutUPS-1.2.0/root/sbin/e-smith/nutUPS.notify	2002-11-27 12:39:30.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/sbin/e-smith/nutUPS.notify	2007-01-04 11:25:19.000000000 -0700
+@@ -1,4 +1,6 @@
+ #! /bin/sh
+-# UPS notify script. This is a placeholder.
++# UPS notify script.
+ 
+-/bin/mail -s "$*" admin < /dev/null
++/bin/mail -s "$UPSNAME: $NOTIFYTYPE" admin <<END
++$*
++END

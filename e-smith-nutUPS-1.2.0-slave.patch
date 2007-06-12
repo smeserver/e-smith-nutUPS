@@ -1,0 +1,18 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/sysconfig/ups/SERVER mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/sysconfig/ups/SERVER
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/sysconfig/ups/SERVER	2007-01-04 11:38:52.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/sysconfig/ups/SERVER	2007-01-04 11:33:45.000000000 -0700
+@@ -1 +1 @@
+-SERVER=yes
++SERVER={ $nut{Master} || 'yes' }
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/MONITOR mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/MONITOR
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/MONITOR	2007-01-04 11:38:52.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/templates/etc/ups/upsmon.conf/MONITOR	2007-01-04 11:38:39.000000000 -0700
+@@ -1 +1,7 @@
+-MONITOR UPS@localhost 1 upsmaster { $nut{MasterPass} } master
++{
++    if ( ($nut{Master} || 'yes') ne 'no' ) {
++	$OUT = "MONITOR UPS\@localhost 1 upsmaster $nut{MasterPass} master";
++    } else {
++	$OUT = "MONITOR $nut{SlaveUPS} 1 upsslave $nut{SlavePass} slave";
++    }
++}
