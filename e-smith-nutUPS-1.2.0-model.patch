@@ -1,0 +1,14 @@
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/defaults/nut/Model mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/defaults/nut/Model
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/defaults/nut/Model	2006-03-15 12:51:21.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/defaults/nut/Model	2007-10-08 09:52:34.000000000 -0600
+@@ -1 +1 @@
+-newhidups
++usbhid-ups
+diff -Nur -x '*.orig' -x '*.rej' e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/migrate/nutModel mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/migrate/nutModel
+--- e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/migrate/nutModel	1969-12-31 17:00:00.000000000 -0700
++++ mezzanine_patched_e-smith-nutUPS-1.2.0/root/etc/e-smith/db/configuration/migrate/nutModel	2007-10-08 09:55:38.000000000 -0600
+@@ -0,0 +1,4 @@
++{
++    my $pool = $DB->get_prop('nut', 'Model');
++    $DB->set_prop('nut', 'Model', 'usbhid-ups') if ($pool eq 'newhidups');
++}
