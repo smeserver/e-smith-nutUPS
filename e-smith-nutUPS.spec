@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 15
+%define release 16
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -21,6 +21,7 @@ Patch9: e-smith-nutUPS-1.2.0-upstype4.patch
 Patch10: e-smith-nutUPS-1.2.0-mfr.patch
 Patch11: e-smith-nutUPS-1.2.0-mfr2.patch
 Patch12: e-smith-nutUPS-1.2.0-model.patch
+Patch13: e-smith-nutUPS-1.2.0-FixUninitializedValue.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -33,6 +34,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Fri Nov 30 2007 Gavin Weight <gweight@gmail.com> 1.2.0-16
+- Fix use of uninitialized value in nutModel migrate.  [SME: 3597]
+
 * Sun Oct 7 2007 Shad L. Lords <slords@mail.com> 1.2.0-15
 - Fix ups model for new version of nut [SME: 3457]
 
@@ -229,6 +233,7 @@ the SME server software.
 %patch10 -p1
 %patch11 -p1
 %patch12 -p1
+%patch13 -p1
 
 %build
 perl createlinks
