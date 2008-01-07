@@ -2,7 +2,7 @@ Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 1.2.0
-%define release 16
+%define release 17
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
@@ -34,6 +34,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Tue Jan 08 2008 Stephen Noble <support@dungog.net> 1.2.0-17
+- Start rc7.d/S38nut up from S15 [SME: 3592]
+
 * Fri Nov 30 2007 Gavin Weight <gweight@gmail.com> 1.2.0-16
 - Fix use of uninitialized value in nutModel migrate.  [SME: 3597]
 
@@ -239,7 +242,7 @@ the SME server software.
 perl createlinks
 
 mkdir -p root/etc/rc.d/rc7.d
-ln -s ../init.d/e-smith-service root/etc/rc.d/rc7.d/S15nut
+ln -s ../init.d/e-smith-service root/etc/rc.d/rc7.d/S38nut
 mkdir -p root/etc/rc.d/init.d
 ln -s ups root/etc/rc.d/init.d/nut
 
