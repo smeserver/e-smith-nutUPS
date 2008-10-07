@@ -1,27 +1,15 @@
+# $Id: e-smith-nutUPS.spec,v 1.5 2008/10/07 18:48:20 slords Exp $
+
 Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
-%define version 1.2.0
-%define release 17
+%define version 2.2.0
+%define release 1
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
-Patch0: e-smith-nutUPS-1.2.0-upsd.conf-perms.patch
-Patch1: e-smith-nutUPS-1.2.0-secure.patch
-Patch2: e-smith-nutUPS-1.2.0-notify.patch
-Patch3: e-smith-nutUPS-1.2.0-slave.patch
-Patch4: e-smith-nutUPS-1.2.0-upstype.patch
-Patch5: e-smith-nutUPS-1.2.0-passwords.patch
-Patch6: e-smith-nutUPS-1.2.0-createlinks.patch
-Patch7: e-smith-nutUPS-1.2.0-config_perms.patch
-Patch8: e-smith-nutUPS-1.2.0-upstype3.patch
-Patch9: e-smith-nutUPS-1.2.0-upstype4.patch
-Patch10: e-smith-nutUPS-1.2.0-mfr.patch
-Patch11: e-smith-nutUPS-1.2.0-mfr2.patch
-Patch12: e-smith-nutUPS-1.2.0-model.patch
-Patch13: e-smith-nutUPS-1.2.0-FixUninitializedValue.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -34,6 +22,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 2.2.0-1.sme
+- Roll new stream to separate sme7/sme8 trees [SME: 4633]
+
 * Tue Jan 08 2008 Stephen Noble <support@dungog.net> 1.2.0-17
 - Start rc7.d/S38nut up from S15 [SME: 3592]
 
@@ -223,20 +214,6 @@ the SME server software.
 
 %prep
 %setup
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
-%patch4 -p1
-%patch5 -p1
-%patch6 -p1
-%patch7 -p1
-%patch8 -p1
-%patch9 -p1
-%patch10 -p1
-%patch11 -p1
-%patch12 -p1
-%patch13 -p1
 
 %build
 perl createlinks
