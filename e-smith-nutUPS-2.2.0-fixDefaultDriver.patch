@@ -1,0 +1,10 @@
+diff -ruN e-smith-nutUPS-2.0.0.old/root/etc/e-smith/templates/etc/ups/ups.conf/UPS e-smith-nutUPS-2.0.0/root/etc/e-smith/templates/etc/ups/ups.conf/UPS
+--- e-smith-nutUPS-2.0.0.old/root/etc/e-smith/templates/etc/ups/ups.conf/UPS	2008-10-07 18:36:28.000000000 +0100
++++ e-smith-nutUPS-2.0.0/root/etc/e-smith/templates/etc/ups/ups.conf/UPS	2009-05-17 08:58:43.000000000 +0100
+@@ -1,5 +1,5 @@
+ {
+-    my $model = $nut{Model} || "newhidups";
++    my $model = $nut{Model} || "usbhid-ups";
+     my $device = $nut{Device} || "/var/lib/ups/hiddev0";
+     my $type = $nut{Type};
+     my $mfr = $nut{mfr};
