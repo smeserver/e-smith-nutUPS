@@ -1,15 +1,16 @@
-# $Id: e-smith-nutUPS.spec,v 1.5 2008/10/07 18:48:20 slords Exp $
+# $Id: e-smith-nutUPS.spec,v 1.6 2009/05/17 08:22:17 snetram Exp $
 
 Summary: SME server - nut UPS interaction module
 %define name e-smith-nutUPS
 Name: %{name}
 %define version 2.0.0
-%define release 1
+%define release 2
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
 Source: %{name}-%{version}.tar.gz
+Patch0: e-smith-nutUPS-2.0.0-fixDefaultDriver.patch
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 Requires: nut nut-client daemontools
 Requires: e-smith-lib >= 1.15.1-16
@@ -22,6 +23,9 @@ A module which configures the Network UPS Tools suite for operation with
 the SME server software.
 
 %changelog
+* Sun May 17 2009 Jonathan Martens <smeserver-contribs@snetram.nl> 2.0.0-2.sme
+- Fix another instance of ups model for new version of nut [SME: 4750]
+
 * Tue Oct 7 2008 Shad L. Lords <slords@mail.com> 2.0.0-1.sme
 - Roll new stream to separate sme7/sme8 trees [SME: 4633]
 
@@ -214,6 +218,7 @@ the SME server software.
 
 %prep
 %setup
+%patch0 -p1
 
 %build
 perl createlinks
